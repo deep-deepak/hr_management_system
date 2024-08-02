@@ -1,0 +1,453 @@
+/* login page css start here */
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+.welcome_heading {
+  margin: 0;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 1.5rem;
+  line-height: 1.58334;
+}
+
+p.please_sign_text {
+  color: #ffffff;
+  font-size: 15px;
+  margin-top: -1px;
+  margin-bottom: 27px;
+}
+
+.formcontainer.main_login_form_div form {
+  box-shadow: 0px 0px 9px 1px #ffffff;
+  padding: 40px 30px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 360px;
+  z-index: 9999;
+  position: relative;
+  background: #0f202c;
+}
+
+.formcontainer.main_login_form_div input {
+  border-radius: 5px;
+  background: #fff !important;
+}
+
+.main_container_login_page {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.login_page_container_fluid {
+  background: #152733;
+}
+
+.formcontainer.main_login_form_div button {
+  background: #ffffff;
+  color: #000;
+  padding: 6px 36px;
+  font-size: 14px;
+  margin: 0 auto;
+  font-weight: 600;
+  border: none !important;
+}
+
+.remember_me_main {
+  display: flex;
+  gap: 3px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.login_btn {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.formcontainer.main_login_form_div {
+  background-image: url(https://brandio.io/envato/iofrm/html/images/graphic3.svg);
+  width: 100% !important;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo_sec {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Custom CSS for the search bar */
+.search {
+  position: relative;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.15);
+  margin-right: 16px;
+  margin-left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.search:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.search-icon {
+  padding: 0 16px;
+  height: 100%;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-root {
+  color: inherit;
+  width: 100%;
+}
+
+.input-input {
+  padding: 8px 8px 8px 0;
+  padding-left: calc(1em + 32px);
+  transition: width 300ms;
+  width: 100%;
+}
+
+/* login page css end here  */
+
+
+/* dashboard css */
+.top_header {
+  background-color: #f4f5fa;
+  color: #413a50;
+}
+
+.active_sidebar_menu {
+  border-top-right-radius: 25px !important;
+  border-bottom-right-radius: 25px !important;
+  border-bottom: none !important;
+  background: linear-gradient(to right, #afe55a, #21995d);
+  color: #fff !important;
+  margin-bottom: 10px !important;
+}
+
+.inactive_sidebar {
+  margin-bottom: 10px !important;
+}
+
+.attendancesidebar {
+  background-color: #e4e5eb !important;
+  margin-top: 10px !important;
+  border-top-right-radius: 25px !important;
+  border-bottom-right-radius: 25px !important;
+  border-bottom: none !important;
+}
+
+.hover.sidebarcomponent {
+  background: #f4f5fa;
+  padding: 0px 20px 0px 0px;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+
+.image_text p {
+  padding: 0px;
+  margin: 0px;
+  letter-spacing: 2px;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.image_text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0px 0px 10px;
+}
+
+.sidebar_content {
+  display: flex;
+  background: #f4f5fa;
+}
+
+.sidebar_content .hover.sidebarcomponent ul {
+  margin: 0px;
+  padding-top: 20px;
+}
+
+.attendanve_main_sec {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0px 0px 0px;
+}
+
+.top_main_heading {
+  margin: 0;
+}
+
+.punch_in_punchout {
+  display: flex;
+  gap: 20px;
+}
+
+.timer_sec p {
+  padding: 0;
+  margin: 0;
+  color: #fff;
+  font-size: 35px;
+  font-weight: 600;
+  width: 100%;
+  max-width: 100%;
+}
+
+.timer_sec {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  width: 100%;
+  margin: 0 auto;
+  box-shadow: 0px 0px 10px 0px #ccc;
+  padding: 40px 15px 20px 15px;
+  max-width: 340px;
+  margin-top: 100px;
+}
+
+span.elapsed_time {
+  display: flex;
+}
+
+.punch_in_punchout button:hover {
+  background: linear-gradient(to right, #afe55a, #21995d) !important;
+}
+
+
+
+span.time-part.hours {
+  display: flex;
+  flex-direction: column;
+}
+
+span.elapsed_time {
+  display: flex;
+  gap: 15px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+span.count_text {
+  color: #fff;
+  background: linear-gradient(to right, #afe55a, #21995d);
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+span.label {
+  color: #000;
+  font-size: 17px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.punch_in_punchout button {
+  font-size: 14px;
+  font-weight: 700;
+  background: #000;
+  padding: 0 26px;
+  margin: 0;
+  border-radius: 4px !important;
+  height: 42px;
+}
+
+p.total_hoirs {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: black;
+}
+
+.attendance_record .table_record th {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: capitalize;
+  padding: 13px 5px 13px 14px;
+  background: #f1f1f1;
+}
+
+.attendance_record .table_record td {
+  color: #282828;
+  font-size: 15px;
+}
+
+button.apply_leave {
+  font-size: 14px;
+  font-weight: 700;
+  background: #000;
+  padding: 10px 26px;
+  margin: 0;
+  border-radius: 4px !important;
+  margin-top: 20px;
+}
+
+.leave_main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button.apply_leave:hover {
+  background: linear-gradient(to right, #afe55a, #21995d);
+}
+form.leave_form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0px 0px 6px 0px #CCC;
+  margin-top: 23px;
+}
+
+.parent_table .attendance_record {
+  box-shadow: 0px 0px 6px 0px #CCC;
+  border-radius: 4px;
+  padding-top: 0px;
+}
+
+.attendance_record {
+  box-shadow: 0px 0px 6px 0px #CCC;
+  border-radius: 4px;
+  padding-top: 24px;
+  margin-top: 24px;
+}
+
+.table_attendance {
+  box-shadow: 0px 0px 4px 0px #ccc !important;
+  margin-top: 40px !important;
+}
+
+#root>div>div.sidebar_content>main>div>div>div>div {
+  box-shadow: unset;
+  padding: 0px 30px;
+}
+
+.content_title {
+  font-size: 30px !important;
+  font-weight: 700;
+  color: #2c2c2c;
+}
+.attendance_record table tr:hover {
+  background-color: #f1f1f1 !important;
+}
+.leave_status {
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.avtar_design {
+  text-transform: capitalize;
+  background: linear-gradient(to right, #afe55a, #21995d);
+}
+
+/* login button css start here  */
+div#menu-appbar ul {
+  padding: 17px 17px 3px 17px;
+  box-shadow: 0px 0px 10px 0px #ccc;
+  border-radius: 5px;
+}
+.first_sec {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+.first_sec p {
+  padding: 0;
+  margin: 0;
+}
+p.name {
+  font-size: 15px;
+  color: #423b50;
+  font-weight: 500;
+}
+p.email {
+  color: #8f8f91;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.6px;
+}
+.first_sec:after {
+  width: 100%;
+  height: 1px;
+  background: #e5e4e7;
+  content: "";
+  left: 0px;
+  display: block;
+  position: absolute;
+  top: 70px;
+}
+.first_sec li {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+.main_section_account li {
+  padding: 0px;
+  color: #423b50;
+  font-size: 15px;
+  display: flex;
+  gap: 11px;
+  align-items: center;
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+.logout {
+  background: #ff4c51 !important;
+  color: #fff !important;
+  padding: 8px !important;
+  border-radius: 5px !important;
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+  gap: 7px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+}
+.logout svg {
+  font-size: 17px;
+}
+.logout:hover {
+  background: #ff4c51 !important;
+}
+.menu_item {margin-right: 45px;}
+.pornhub_brandclever {
+  width: 100% !important;
+  margin-left: -10px !important;
+  max-width: 270px !important;
+  margin-top: 10px !important;
+}
+.main_section_account li svg {
+  color: #423b50;
+  font-size: 22px;
+}
+.logout svg {
+  color: #fff !important;
+}
+.main_section_account li:hover {
+  background-color: unset;
+}
+
+
+/* login button css end here  */
