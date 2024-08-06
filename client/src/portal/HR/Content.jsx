@@ -1,5 +1,11 @@
 import React from 'react';
 import Header from './Header';
+import AttendancePortal from '../../components/AttendancePortal';
+import DailyAttendance from '../../components/DailyAttendance';
+import MonthlyAttendance from '../../components/MonthlyAttendance';
+import ChangePassword from '../../components/ChangePassword';
+import Setting from '../../components/Setting';
+import EmployeeList from './component/EmpList';
 
 const Content = ({ selectedItem, onLogout, onMenuItemClick }) => {
 
@@ -7,17 +13,18 @@ const Content = ({ selectedItem, onLogout, onMenuItemClick }) => {
     const renderContent = () => {
         switch (selectedItem) {
             case 'Home':
-                return "Home";
+                return <AttendancePortal />;
             case 'DailyAttendance':
-                return "<DailyAttendance />";
+                return <DailyAttendance />;
             case 'MonthlyAttendance':
-                return "<MonthlyAttendance />";
-            case 'LeaveList':
-                return "<Leave />";
+                return <MonthlyAttendance />;
             case 'ChangePassword':
-                return "<ChangePassword />";
+                return <ChangePassword />;
             case 'Settings':
-                return "<Setting />";
+                return <Setting />;
+            case 'employee':
+                return <EmployeeList />;
+
             default:
                 return "test"; // Default content
         }

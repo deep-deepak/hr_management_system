@@ -10,10 +10,12 @@ const Sidebar = ({ onSelect, collapsed, toggleCollapse, selectedMenu }) => {
     const [openAttendance, setOpenAttendance] = useState(false);
     const [openPayroll, setOpenPayroll] = useState(false);
     const [openLeaves, setOpenLeaves] = useState(false);
+    const [openTeam, setOpenTeam] = useState(false);
 
     const handleClickAttendance = () => setOpenAttendance(!openAttendance);
     const handleClickPayroll = () => setOpenPayroll(!openPayroll);
     const handleClickLeaves = () => setOpenLeaves(!openLeaves);
+    const handleClickTeam = () => setOpenTeam(!openTeam);
 
     return (
         <Box className="hover sidebarcomponent"
@@ -87,22 +89,22 @@ const Sidebar = ({ onSelect, collapsed, toggleCollapse, selectedMenu }) => {
                 </Collapse>
                 <Divider />
 
-                <ListItem button onClick={() => { handleClickLeaves(); }}>
+                <ListItem button onClick={() => { handleClickTeam(); }}>
                     <ListItemIcon>
                         <CalendarToday />
                     </ListItemIcon>
-                    {!collapsed && <ListItemText primary="Leaves" />}
-                    {openLeaves ? <ExpandMore /> : <NavigateNextIcon />}
+                    {!collapsed && <ListItemText primary="Employee" />}
+                    {openTeam ? <ExpandMore /> : <NavigateNextIcon />}
                 </ListItem>
-                <Collapse in={openLeaves} timeout="auto" unmountOnExit>
+                <Collapse in={openTeam} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
-                        <ListItem button sx={{ pl: 4 }} onClick={() => onSelect('LeaveList')}
-                            className={selectedMenu === "LeaveList" ? "active_sidebar_menu" : "inactive_sidebar"}
+                        <ListItem button sx={{ pl: 4 }} onClick={() => onSelect('employee')}
+                            className={selectedMenu === "employee" ? "active_sidebar_menu" : "inactive_sidebar"}
                         >
                             <ListItemIcon>
                                 <AdjustIcon />
                             </ListItemIcon>
-                            {!collapsed && <ListItemText primary="Leave Record" />}
+                            {!collapsed && <ListItemText primary="List" />}
                         </ListItem>
                         {/* <ListItem button sx={{ pl: 4 }} onClick={() => onSelect('LeaveBalances')}
                             className={selectedMenu === "LeaveBalances" ? "active_sidebar_menu" : "inactive_sidebar"}

@@ -13,8 +13,19 @@ function generateVerificationCode() {
 }
 
 // Define routes related to products
-router.get('/api/users', async (req, res) => {
-    const users = await User.find();
+router.get('/api/empployee', async (req, res) => {
+    const users = await User.find().sort({ createdAt: -1 });
+    if (users) {
+        return res.send({
+            status: true,
+            data: users
+        })
+    } else {
+        return res.send({
+            status: false,
+            data: ""
+        })
+    }
     res.json(users);
 });
 
@@ -44,30 +55,36 @@ router.get('/api/user/:id', async (req, res) => {
     }
 });
 
-router.post('/api/user/register', async (req, res) => {
+router.post('/api/add/empployee', async (req, res) => {
     try {
         const formData = req.body;
         const userModal = await User.findOne({ email: formData.email });
         if (userModal) {
             return res.send({
                 status: false,
-                message: "User already Register"
+                message: "Employee already Exist."
             })
         } else {
             const users = new User({
-                firstname: formData.firstName,
-                lastname: formData.lastName,
-                email: formData.email,
-                password: formData.password,
+                ...formData,
                 createdAt: new Date(),
                 updatedAt: new Date()
             });
             await users.save();
-            res.send({
-                status: true,
-                data: users
-            })
-            res.json(users);
+            if (users) {
+
+                return res.send({
+                    status: true,
+                    data: users,
+                    message: "Employee added successfully."
+                })
+            } else {
+                return res.send({
+                    status: false,
+                    data: "",
+                    message: "Something went wrong."
+                })
+            }
         }
     } catch (error) {
         console.log("error", error)

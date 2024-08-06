@@ -66,5 +66,39 @@ export const updatePassword = async (userId, params) => {
     return results;
 }
 
+export const addEmployee = async (params) => {
+    let results = await axios({
+        method: 'POST',
+        url: "http://localhost:5000/api/add/empployee",
+        data: params
+    })
+        .then(result => result.data)
+        .catch(error => {
+            return {
+                status: "error",
+                message: error.message
+            };
+        });
+    return results;
+}
+
+
+export const getEmployees = async (params) => {
+    let results = await axios({
+        method: 'GET',
+        url: "http://localhost:5000/api/empployee",
+        data: params
+    })
+        .then(result => result.data)
+        .catch(error => {
+            return {
+                status: "error",
+                message: error.message
+            };
+        });
+    return results;
+}
+
+
 
 
