@@ -105,9 +105,8 @@ const Header = ({ onLogout, onMenuItemClick }) => {
                                         </Avatar>
                                     </div>
                                     <div className='name_email'>
-                                        <p className='name'>{user.name ? user.name : "No name"}</p>
+                                        <p className='name'>{user.name ? user.name : "John sinha"}</p>
                                         <p className='email'>{user.email && user.email}</p>
-                                        {/* <p className='email'>{user.role && user.role}</p> */}
                                     </div>
                                 </div>
                                 <MenuItem className='menu_item' onClick={() => handleMenuItemSelect('Home')}><PersonOutlineIcon /> Go to Dashboard</MenuItem>

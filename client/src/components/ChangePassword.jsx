@@ -6,8 +6,8 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { Container } from '@mui/material';
 import { toast } from 'react-toastify';
-import { updatePassword } from '../../../service/user';
-import { authenticatedUser } from '../../../service/authentication';
+import { updatePassword } from '../service/user';
+import { authenticatedUser } from '../service/authentication';
 
 const ChangePassword = () => {
     const [formData, setFormData] = useState({ currentPassword: '', newPassword: '', confirmPassword: '' });

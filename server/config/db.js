@@ -8,7 +8,8 @@ const database = "portal"
 
 const uri = `mongodb+srv://${username}:${password}@cluster0.fu5kk6v.mongodb.net/${database}`
 
-const databaseUrl = uri || `mongodb://127.0.0.1:27017/${database}`;
+// const databaseUrl = uri || `mongodb://127.0.0.1:27017/${database}`;
+const databaseUrl = `mongodb://127.0.0.1:27017/${database}`;
 
 // Connect to MongoDB
 mongoose.connect(databaseUrl, {

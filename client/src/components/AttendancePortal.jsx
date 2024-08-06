@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import moment from 'moment'
-import { authenticatedUser } from '../../../service/authentication';
 import { Button, Container } from '@mui/material';
-import { attendancePunchin, attendancePunchout, fetchPunchInData, getAttendanceData } from '../../../service/attendance';
+import { attendancePunchin, attendancePunchout, fetchPunchInData, getAttendanceData } from '../service/attendance';
 
 import { toast } from 'react-toastify'
+import { authenticatedUser } from '../service/authentication';
 
 export default function AttendancePortal() {
 

@@ -1,18 +1,9 @@
 import { useEffect, useState } from 'react';
-import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
-import { Container } from '@mui/material';
+import {Grid,Card ,CardContent,Button,TextField,FormControl,InputLabel,Select,MenuItem,Container} from "@mui/material";
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { authenticatedUser } from '../../../service/authentication';
-import { getUser, updateUser } from '../../../service/user';
+import { authenticatedUser } from '../service/authentication';
+import { getUser, updateUser } from '../service/user';
 import { toast } from 'react-toastify';
 
 const Setting = () => {
