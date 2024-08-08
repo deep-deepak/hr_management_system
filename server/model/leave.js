@@ -7,6 +7,7 @@ const leaveSchema = new mongoose.Schema({
     startDate: String,
     endDate: String,
     status: String,
+    userBy: String,
     updatedAt: { type: Date, default: Date.now },
     createdAt: { type: Date, default: Date.now }
 });

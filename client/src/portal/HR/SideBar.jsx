@@ -9,13 +9,13 @@ const Sidebar = ({ onSelect, collapsed, toggleCollapse, selectedMenu }) => {
 
     const [openAttendance, setOpenAttendance] = useState(false);
     const [openPayroll, setOpenPayroll] = useState(false);
-    const [openLeaves, setOpenLeaves] = useState(false);
     const [openTeam, setOpenTeam] = useState(false);
+    const [openEmpLeave, setOpenEmpLeave] = useState(false);
 
     const handleClickAttendance = () => setOpenAttendance(!openAttendance);
     const handleClickPayroll = () => setOpenPayroll(!openPayroll);
-    const handleClickLeaves = () => setOpenLeaves(!openLeaves);
     const handleClickTeam = () => setOpenTeam(!openTeam);
+    const handleClickEmpLeave = () => setOpenEmpLeave(!openEmpLeave);
 
     return (
         <Box className="hover sidebarcomponent"
@@ -106,14 +106,25 @@ const Sidebar = ({ onSelect, collapsed, toggleCollapse, selectedMenu }) => {
                             </ListItemIcon>
                             {!collapsed && <ListItemText primary="List" />}
                         </ListItem>
-                        {/* <ListItem button sx={{ pl: 4 }} onClick={() => onSelect('LeaveBalances')}
-                            className={selectedMenu === "LeaveBalances" ? "active_sidebar_menu" : "inactive_sidebar"}
+                    </List>
+                </Collapse>
+                <ListItem button onClick={() => { handleClickEmpLeave(); }}>
+                    <ListItemIcon>
+                        <CalendarToday />
+                    </ListItemIcon>
+                    {!collapsed && <ListItemText primary="Employee Leave" />}
+                    {openEmpLeave ? <ExpandMore /> : <NavigateNextIcon />}
+                </ListItem>
+                <Collapse in={openEmpLeave} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                        <ListItem button sx={{ pl: 4 }} onClick={() => onSelect('empleave')}
+                            className={selectedMenu === "empleave" ? "active_sidebar_menu" : "inactive_sidebar"}
                         >
                             <ListItemIcon>
                                 <AdjustIcon />
                             </ListItemIcon>
-                            {!collapsed && <ListItemText primary="Leave Balances" />}
-                        </ListItem> */}
+                            {!collapsed && <ListItemText primary="List" />}
+                        </ListItem>
                     </List>
                 </Collapse>
                 <ListItem button onClick={() => { handleClickPayroll(); }}>

@@ -50,12 +50,13 @@ const Leave = () => {
         const authenticated = await authenticatedUser();
         if (authenticated) {
           const response = await getLeave(authenticated.user.userId);
+          setLoading(false)
           if (response.status) {
             setLeaveHistory(response.data)
             setLoading(false)
           }
         }
-
+        setLoading(false)
       } catch (error) {
         console.log("error", error)
       }
@@ -110,15 +111,8 @@ const Leave = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      // const emailData = {
-      //   to: "tushar.brandclever@gmail.com",
-      //   subject: "test",
-      //   text: "test description"
-      // }
-      // const res =await  sendEmail(emailData)
-      // console.log("res", res)
-      // return;
       if (!validate()) return;
       const authenticated = await authenticatedUser();
 
@@ -133,7 +127,9 @@ const Leave = () => {
           userId: authenticated.user.userId
         };
         const result = await applyLeave(newLeave);
+        setLoading(true)
         if (result.status) {
+          // setLeaveHistory(result.data)
           toast.success("Leave submitted successfully!");
           setLoading(true)
           setFormData({
@@ -148,14 +144,16 @@ const Leave = () => {
             endDate: '',
             reason: '',
           });
-
+          setLoading(false)
           setShowForm(false);
         }
       } else {
         toast.error("Please login!");
+        setLoading(false)
         return
       }
     } catch (error) {
+      setLoading(false)
       toast.error("Something went wrong!")
     }
   };
@@ -271,6 +269,8 @@ const Leave = () => {
                         <TableCell>Start Date and Time</TableCell>
                         <TableCell>End Date and Time</TableCell>
                         <TableCell>Status</TableCell>
+                        <TableCell>Status By</TableCell>
+                        <TableCell>Name</TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>
@@ -280,6 +280,7 @@ const Leave = () => {
                           const startDate = moment(leave.startDate).format('DD-MM-YYYY HH:mm a');
                           const endDate = moment(leave.endDate).format('DD-MM-YYYY HH:mm a');
                           const appliedAt = moment(leave.createdAt).format('DD-MM-YYYY HH:mm a');
+                          const user = leave.userDetails;
                           return (
                             <TableRow key={leave._id}>
                               <TableCell>{appliedAt}</TableCell>
@@ -287,8 +288,19 @@ const Leave = () => {
                               <TableCell>{startDate}</TableCell>
                               <TableCell>{endDate}</TableCell>
                               <TableCell>
-                                <Chip className='leave_status' label={`${leave.status}`} variant="filled" color={`${leave.status === "pending" ? "warning" : "success"}`} />
+                                <Chip className='leave_status' label={`${leave.status}`} variant="filled" color={
+                                  leave.status === "approved" ? "success" :
+                                    leave.status === "pending" ? "warning" :
+                                      leave.status === "unapproved" ? "error" :
+                                        "default" // Default color if none of the conditions match
+                                } />
 
+                              </TableCell>
+                              <TableCell>
+                                {user.role}
+                              </TableCell>
+                              <TableCell>
+                                {user.firstName} {user.lastName}
                               </TableCell>
                             </TableRow>
                           )
