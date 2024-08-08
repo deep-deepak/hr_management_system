@@ -7,7 +7,7 @@ import { addEmployee } from '../../../service/user';
 
 export default function AddEmp({ useOpen, useLoading }) {
 
-    const [loading, setLoading] = (useState(false))
+    const [loading, setLoading] = useLoading()
     const [showForm, setShowForm] = useOpen();
     const [formData, setFormData] = useState({
         firstName: '',
@@ -226,6 +226,7 @@ export default function AddEmp({ useOpen, useLoading }) {
 
     return (
         <div>
+            <Paper style={{ padding: '1rem', marginTop: '1rem' }}>
             <Box component="form" onSubmit={handleSubmit} sx={{ marginBottom: '2rem' }} className='add_team_member_form'>
                 <Grid container spacing={2}>
                     <Grid item md={6}>
@@ -401,10 +402,11 @@ export default function AddEmp({ useOpen, useLoading }) {
                         </FormControl>
                     </Grid>
                 </Grid>
-                <Button type="submit" variant="contained" color="primary" className='apply_leave' fullWidth>
+                <Button type="submit" variant="contained" color="primary" className='apply_leave' fullWidth disabled={loading}>
                     Add Team Member
                 </Button>
             </Box>
+            </Paper>
         </div>
     )
 }

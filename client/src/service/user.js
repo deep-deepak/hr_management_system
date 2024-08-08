@@ -100,5 +100,22 @@ export const getEmployees = async (params) => {
 }
 
 
+export const deleteEmployee = async (employeeId) => {
+    console.log("employeeId",employeeId)
+    let results = await axios({
+        method: 'DELETE',
+        url: `http://localhost:5000/api/empployee/${employeeId}`,
+    })
+        .then(result => result.data)
+        .catch(error => {
+            return {
+                status: "error",
+                message: error.message
+            };
+        });
+    return results;
+}
+
+
 
 

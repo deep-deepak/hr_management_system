@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import {Grid,Card ,CardContent,Button,TextField,FormControl,InputLabel,Select,MenuItem,Container} from "@mui/material";
+import { Grid, Card, CardContent, Button, TextField, FormControl, InputLabel, Select, MenuItem, Container } from "@mui/material";
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { authenticatedUser } from '../service/authentication';
@@ -19,7 +19,8 @@ const Setting = () => {
                     const userData = response.data;
                     setFormData({
                         ...userData,
-                        dob: userData.dob ? new Date(userData.dob) : null
+                        dob: userData.dob ? new Date(userData.dob) : null,
+                        address: userData.address || { currentAddress: '', permanentAddress: '' }
                     });
                 }
             }
@@ -34,13 +35,30 @@ const Setting = () => {
         if (!formData.email) newErrors.email = 'Email is required';
         if (formData.phoneNumber && !/^[0-9]{10}$/.test(formData.phoneNumber)) newErrors.phoneNumber = 'Phone Number must be exactly 10 digits';
         if (!formData.dob) newErrors.dob = 'Date of Birth is required';
+        if (!formData.address.currentAddress) newErrors.currentAddress = 'Current Address is required';
+        if (!formData.address.permanentAddress) newErrors.permanentAddress = 'Permanent Address is required';
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
 
     const handleFormChange = (field, value) => {
-        setFormData({ ...formData, [field]: value });
+        setFormData(prevState => ({
+            ...prevState,
+            [field]: value
+        }));
         // Clear error for the specific field
+        setErrors(prevErrors => ({ ...prevErrors, [field]: '' }));
+    };
+
+    const handleAddressChange = (field, value) => {
+        setFormData(prevState => ({
+            ...prevState,
+            address: {
+                ...prevState.address,
+                [field]: value
+            }
+        }));
+        // Clear error for the address field
         setErrors(prevErrors => ({ ...prevErrors, [field]: '' }));
     };
 
@@ -139,12 +157,15 @@ const Setting = () => {
                             <Grid item xs={12} sm={6}>
                                 <TextField
                                     fullWidth
-                                    label='Address'
-                                    value={formData.address || ""}
-                                    placeholder='Address'
-                                    onChange={e => handleFormChange('address', e.target.value)}
+                                    label='Current Address'
+                                    value={formData.address?.currentAddress || ""}
+                                    placeholder='Current Address'
+                                    onChange={e => handleAddressChange('currentAddress', e.target.value)}
+                                    error={!!errors.currentAddress}
+                                    helperText={errors.currentAddress}
                                 />
                             </Grid>
+                           
                             <Grid item xs={12} sm={6}>
                                 <FormControl fullWidth error={!!errors.dob}>
                                     <LocalizationProvider dateAdapter={AdapterDateFns}>

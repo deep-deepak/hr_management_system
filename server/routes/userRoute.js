@@ -152,14 +152,18 @@ router.put('/api/user/:id', async (req, res) => {
 });
 
 
-router.delete('/api/user/:id', async (req, res) => {
+router.delete('/api/empployee/:id', async (req, res) => {
     try {
         const userId = req.params.id;
         if (userId) {
             await User.deleteOne({ _id: userId });
-            return {
+            return res.send({
                 status: true,
-            }
+            })
+        } else {
+            return res.send({
+                status: false,
+            })
         }
     } catch (error) {
         console.log(error)
@@ -171,12 +175,10 @@ router.put('/api/user/update/password/:id', async (req, res) => {
     try {
         // Find the user by ID
         const userId = req.params.id;
-        console.log("userId", userId)
         // Find the item by ID
         const { newPassword, currentPassword } = req.body;
         console.log("req.body", req.body)
         const user = await User.findById(userId);
-        console.log("user", user)
         // if (!user) {
         //     return { status: false, message: 'User not found' };
         // }
