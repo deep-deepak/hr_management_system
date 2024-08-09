@@ -289,6 +289,7 @@ p.total_hoirs {
 .attendance_record .table_record td {
   color: #282828;
   font-size: 15px;
+  text-transform: capitalize;
 }
 
 button.apply_leave {

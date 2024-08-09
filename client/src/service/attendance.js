@@ -71,3 +71,20 @@ export const getAttendanceData = async (userId, params) => {
     return results;
 };
 
+
+export const getEmpAttendance = async () => {
+    let results = await axios({
+        method: 'GET',
+        url: `http://localhost:5000/api/employee/attendance`
+    })
+        .then(result => result.data)
+        .catch(error => {
+            return {
+                status: "error",
+                message: error.message
+            };
+        });
+    return results;
+};
+
+

@@ -81,7 +81,8 @@ const EmpLeave = () => {
                                             <TableCell>Profile</TableCell>
                                             <TableCell>type</TableCell>
                                             <TableCell>reason</TableCell>
-                                            <TableCell>from to</TableCell>
+                                            <TableCell>from</TableCell>
+                                            <TableCell>to</TableCell>
                                             <TableCell>Status</TableCell>
                                             <TableCell>Action</TableCell>
                                         </TableRow>
@@ -101,7 +102,8 @@ const EmpLeave = () => {
                                                         <TableCell>{user.profile}</TableCell>
                                                         <TableCell>{ele.type}</TableCell>
                                                         <TableCell>{ele.reason}</TableCell>
-                                                        <TableCell>{startDate} to {endDate}</TableCell>
+                                                        <TableCell>{startDate} </TableCell>
+                                                        <TableCell>{endDate} </TableCell>
                                                         <TableCell>
                                                             <Chip className='leave_status' label={ele.status} color={
                                                                 ele.status === "approved" ? "success" :

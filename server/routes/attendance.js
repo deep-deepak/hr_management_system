@@ -178,5 +178,51 @@ router.get('/api/user/attendance/list/:userId', async (req, res) => {
         });
     }
 });
+router.get('/api/employee/attendance', async (req, res) => {
+    try {
+        const response = await Attendance.aggregate([
+            {
+                $addFields: {
+                    userId: { $toObjectId: "$userId" }
+                }
+            },
+            {
+                $lookup: {
+                    from: 'users',
+                    localField: 'userId',
+                    foreignField: '_id',
+                    as: 'userDetails'
+                }
+            },
+            {
+                $unwind: {
+                    path: '$userDetails',
+                    preserveNullAndEmptyArrays: true
+                }
+            },
+            {
+                $sort: { createdAt: -1 }
+            }
+        ]);
+        if (response.length > 0) {
+            return res.send({
+                status: true,
+                data: response
+            });
+        } else {
+            return res.send({
+                status: false,
+                data: []
+            });
+        }
+    } catch (error) {
+        return res.status(500).send({
+            status: false,
+            message: "Internal Server Error"
+        });
+    }
+});
+
+
 
 module.exports = router;
