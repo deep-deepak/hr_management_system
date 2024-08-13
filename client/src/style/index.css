@@ -145,6 +145,10 @@ p.please_sign_text {
   margin-bottom: 10px !important;
 }
 
+img.menubar_image {
+  height: 80px;
+}
+
 .attendancesidebar {
   background-color: #e4e5eb !important;
   margin-top: 10px !important;

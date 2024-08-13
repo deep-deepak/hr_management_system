@@ -41,11 +41,11 @@ const Sidebar = ({ onSelect, collapsed, toggleCollapse, selectedMenu }) => {
                     {
                         !collapsed ? (
                             <>
-                                <img src='images/imagelogo.png' className='menubar_image' />
-                                <p>Brandclever</p>
+                                <img src='images/hr.png' className='menubar_image' />
+                                <p>Hr management system</p>
                             </>
                         ) : (
-                            <img src='images/imagelogo.png' className='menubar_image' />
+                            <img src='images/hr.png' className='menubar_image' />
                         )
                     }
                 </div>
