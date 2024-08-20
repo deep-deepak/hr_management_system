@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import {
   Backdrop,
   Button,
@@ -116,14 +116,14 @@ export default function Login({ onLoginSuccess }) {
 
         <div className="formcontainer main_login_form_div">
           <form onSubmit={handleSubmit}>
-            <div className="logo_sec">
+            {/* <div className="logo_sec">
               <img
                 src="/images/logo.png"
                 alt="logo"
               />
-            </div>
+            </div> */}
             <Typography variant="h6" className="welcome_heading">
-              Welcome to Brandclever! <span className="hand_icn">👋🏻 </span>
+              Welcome to Hr management system! <span className="hand_icn">👋🏻 </span>
             </Typography>
             <p className="please_sign_text">
               Please sign-in to your account and start the adventure
